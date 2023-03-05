@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/frontend-calendar-online/static/css/main.cca033ab.css",
+    "main.js": "/frontend-calendar-online/static/js/main.46c4ac92.js",
+    "static/media/loader.gif": "/frontend-calendar-online/static/media/loader.803f24369a085e35482e.gif",
+    "static/media/avatar1.jpg": "/frontend-calendar-online/static/media/avatar1.32eb42680afb55d8b3fb.jpg",
+    "index.html": "/frontend-calendar-online/index.html",
+    "main.cca033ab.css.map": "/frontend-calendar-online/static/css/main.cca033ab.css.map",
+    "main.46c4ac92.js.map": "/frontend-calendar-online/static/js/main.46c4ac92.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cca033ab.css",
+    "static/js/main.46c4ac92.js"
+  ]
+}
