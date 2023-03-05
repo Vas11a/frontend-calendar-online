@@ -1,0 +1,1 @@
+export const webUrl = 'https://backend-for-calendarapp.onrender.com/';
