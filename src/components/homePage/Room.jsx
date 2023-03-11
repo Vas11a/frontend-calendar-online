@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrentName } from '../../redux/slices/currentRoomSlice';
+import { setCurrentName, setCurrentPass } from '../../redux/slices/currentRoomSlice';
 import { openClosePasPanel } from '../../redux/slices/settingsSlice';
 
 export default function Room({ roomName, bgIdx }) {
@@ -11,6 +11,7 @@ export default function Room({ roomName, bgIdx }) {
     const pressRoom = () => {
         dispatch(openClosePasPanel());
         dispatch(setCurrentName(roomName));
+        dispatch(setCurrentPass(''));
     };
 
     React.useEffect(() => {

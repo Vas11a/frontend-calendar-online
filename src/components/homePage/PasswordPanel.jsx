@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import loader from '../../imgs/loader.gif';
+import eye from '../../imgs/eye.png'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPass, addCurrentRoom, setRoomEntered } from '../../redux/slices/currentRoomSlice';
@@ -19,8 +20,13 @@ export default function PasswordPanel({ thema }) {
     const [animation, setAnimation] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
     const [nameErr, setNameErr] = React.useState(false);
+    const [isPassword, setIsPassword ] = React.useState(true);
 
     const dispatch = useDispatch();
+
+    const changePass = (e) => {
+        dispatch(setCurrentPass(e.target.value));
+    };
     
     // enter room
     const goToRoom = async () => {
@@ -49,7 +55,16 @@ export default function PasswordPanel({ thema }) {
         <div className={`account flex flex-col justify-center text-center  py-2 rounded-md px-2 duration-500 ${thema !== 'white' ? 'bg-gray-400' : 'bg-gray-300'} -mt-80 ${animation && ' translate-y-80'}`}>
             <div className=' font-bold text-xl'>{currentName}</div>
             {nameErr && <div className=' font-bold -my-2 text-red-600 text-sm'>wrong password</div>}
-            <input onChange={(e) => dispatch(setCurrentPass(e.target.value))} type="text" placeholder='password' className={`focus:outline-0 font-bold rounded-md p-1 text-lg w-full  ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`} />
+            <div className=' flex items-center relative'>
+            <input 
+                value={currentPassword} 
+                type={isPassword ? 'password' : 'text'} 
+                onChange={changePass} 
+                placeholder='password' 
+                className={`focus:outline-0 font-bold pr-10 rounded-md p-1 text-lg w-full  ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}
+            />
+            <img src={eye} alt="see" onClick={() => setIsPassword(!isPassword)} className=' w-6 h-6 m-1 right-1 absolute cursor-pointer' />
+            </div>
             <button onClick={goToRoom} className='border-2 border-gray-500 py-1 px-2 font-medium rounded-xl'>Enter</button>
             {
                 isLoading && <img src={loader}  alt="loading"  className=' w-11 h-11 m-auto'/>

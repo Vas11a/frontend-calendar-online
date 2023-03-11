@@ -6,7 +6,7 @@
 /* HOME PAGE */
 
 .wrapper{
-    @apply p-2
+    @apply p-2 min-h-screen
 }
 
 .headerHome{
