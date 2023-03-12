@@ -1,10 +1,10 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { changeThema } from '../redux/slices/settingsSlice';
+import { useAppSelector, useAppDispatch } from '../redux/hooks';
 
-export default function Thema() {
-    const dispatch = useDispatch();
-    const {thema} = useSelector((state) => state.sett);
+const Thema:React.FC = () =>  {
+    const dispatch = useAppDispatch();
+    const {thema} = useAppSelector((state) => state.sett);
     return (
         <div className="changeThema pb-1 py-3 flex gap-2 justify-center">
             <div className='font-bold'>White</div>
@@ -17,3 +17,5 @@ export default function Thema() {
         </div>
     )
 }
+
+export default Thema;

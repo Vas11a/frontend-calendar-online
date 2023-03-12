@@ -1,19 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 import loader from '../../imgs/loader.gif';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { addMainMessage, addMessage } from '../../redux/slices/currentRoomSlice';
 import { setMessage } from '../../redux/slices/currentRoomSlice';
 import {webUrl} from '../../urls';
 
-export default function ButtonsDayPannel({data, message}) {
-    const {currentName} = useSelector((state) => state.currentRoom);
-    const {name} = useSelector((state) => state.registred);
+type PropsType = {
+    data: string;
+    message: string;
+}
+
+const ButtonsDayPannel:React.FC<PropsType> = ({data, message}) => {
+    const {currentName} = useAppSelector((state) => state.currentRoom);
+    const {name} = useAppSelector((state) => state.registred);
 
     const [isLoading, setIsLoading] = React.useState(false);
     const [isError, setIsError] = React.useState(false);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     //send message as main
     const sendAsMain = async () => {
@@ -53,3 +58,5 @@ export default function ButtonsDayPannel({data, message}) {
         </>
     );
 }
+
+export default ButtonsDayPannel;

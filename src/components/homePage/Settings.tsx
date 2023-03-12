@@ -3,10 +3,11 @@ import Thema from '../Thema';
 import ChangeAv from './ChangeAv';
 import CreateRoom from './CreateRoom';
 import PasswordPanel from './PasswordPanel'
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../redux/hooks';
 
-export default function Settings({thema}) {
-    const {isOpenPasPanel, isOpenCreatePanel, isOpenChangeAvPanel} = useSelector((state) => state.sett);
+const Settings:React.FC<{thema: string}> = ({thema}) => {
+    
+    const {isOpenPasPanel, isOpenCreatePanel, isOpenChangeAvPanel} = useAppSelector((state) => state.sett);
     
     return (
         <div className="settings">
@@ -34,3 +35,5 @@ export default function Settings({thema}) {
         </div>
     );
 };
+
+export default Settings;

@@ -2,11 +2,11 @@ import React from 'react';
 import Thema from '../Thema';
 import OtSettButtons from './OtSettButtons';
 import RemoveGroup from './RemoveGroup';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../redux/hooks';
 
-export default function OtherSettingsPanel({thema}) {
+const OtherSettingsPanel:React.FC<{thema: string}> = ({thema}) => {
 
-    const { isOpenRemovepannel } = useSelector((state) => state.sett);
+    const { isOpenRemovepannel } = useAppSelector((state) => state.sett);
 
     return (
         <div className="otherSettingsPanel overflow-hidden">
@@ -24,3 +24,5 @@ export default function OtherSettingsPanel({thema}) {
         </div>
     );
 };
+
+export default OtherSettingsPanel;

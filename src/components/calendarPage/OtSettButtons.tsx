@@ -1,14 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { openRemovePannel, clearSettingSlice } from '../../redux/slices/settingsSlice';
 import {useNavigate} from 'react-router-dom';
 import { clearRoomSlice } from '../../redux/slices/currentRoomSlice';
 import { clearRoomsSlice } from '../../redux/slices/roomsSlice';
 
-export default function OtSettButtons() {
+const OtSettButtons:React.FC = () =>  {
     const navigate = useNavigate();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const clickHome = () => {
         dispatch(clearRoomSlice());
@@ -23,3 +23,5 @@ export default function OtSettButtons() {
         </div>
     );
 };
+
+export default OtSettButtons;

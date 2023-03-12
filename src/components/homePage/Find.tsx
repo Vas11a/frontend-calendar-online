@@ -1,14 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import { setRoomNameToFind } from '../../redux/slices/roomsSlice';
-import {useSelector, useDispatch} from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { loadRooms } from '../../redux/slices/roomsSlice';
 import {webUrl} from '../../urls';
 
-export default function Find({load}) {
-    const dispatch = useDispatch();
+type SetIsLoadingType = React.Dispatch<React.SetStateAction<boolean>>;
 
-    const {roomNameToFind} = useSelector((state) => state.rooms);
+interface FindProps {
+  load: SetIsLoadingType;
+}
+
+const Find:React.FC<FindProps> = ({load}) => {
+    const dispatch = useAppDispatch();
+
+    const {roomNameToFind} = useAppSelector((state) => state.rooms);
     
     // function to find room
     const findRoom = async () => {
@@ -29,3 +35,5 @@ export default function Find({load}) {
         </div>
     );
 };
+
+export default Find;

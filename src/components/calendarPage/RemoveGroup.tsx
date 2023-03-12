@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { clearRoomSlice } from '../../redux/slices/currentRoomSlice';
 import { clearRoomsSlice } from '../../redux/slices/roomsSlice';
 import { clearSettingSlice, openRemovePannel } from '../../redux/slices/settingsSlice';
@@ -8,12 +8,12 @@ import { useNavigate } from 'react-router-dom';
 import {webUrl} from '../../urls';
 
 
-export default function RemoveGroup({thema}) {
-    const {currentName} = useSelector((state) => state.currentRoom);
+const RemoveGroup:React.FC<{thema: string}> = ({thema}) => {
+    const {currentName} = useAppSelector((state) => state.currentRoom);
 
     const navigate = useNavigate();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const [animation, setAnimation] = React.useState(false);
     const [error, setError] = React.useState(false);
@@ -51,3 +51,5 @@ export default function RemoveGroup({thema}) {
         </div>
     );
 };
+
+export default RemoveGroup;

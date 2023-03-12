@@ -4,13 +4,12 @@ import Footer from '../components/Footer';
 import DaysList from '../components/calendarPage/DaysList';
 import DayPannel from '../components/calendarPage/DayPannel';
 import OtherSettingsPanel from '../components/calendarPage/OtherSettingsPanel';
-import {useSelector} from 'react-redux';
+import { useAppSelector } from '../redux/hooks';
 import {useNavigate} from 'react-router-dom';
 
 export default function CalendarPage() {
-  const {thema} = useSelector((state) => state.sett);
-
-  const {isRoomEntered, currentRoom} = useSelector((state) => state.currentRoom);
+  const {thema} = useAppSelector((state) => state.sett);
+  const {isRoomEntered, currentRoom} = useAppSelector((state) => state.currentRoom);
 
   const navigate = useNavigate();
 
@@ -22,9 +21,9 @@ export default function CalendarPage() {
 
   return (
     <div className={`wrapper duration-500 ${thema !== 'white' && 'bg-gray-600'}`}>
-      <Header chatName={currentRoom !== null && currentRoom.name} />
+      <Header chatName={currentRoom !== null ? currentRoom.name : ''} />
       <main>
-        <DaysList days={currentRoom !== null && currentRoom.days}/>
+        <DaysList/>
         <div className="controolPanel ">
           <DayPannel thema={thema}/>
           <OtherSettingsPanel thema={thema} />

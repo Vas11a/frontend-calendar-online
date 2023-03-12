@@ -1,11 +1,11 @@
 import React from 'react';
 import pluse from '../../imgs/pluse.png';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { openCloseCreatePanel } from '../../redux/slices/settingsSlice';
 
 
-export default function Pluse() {
-    const dispatch = useDispatch();
+const Pluse:React.FC = () => {
+    const dispatch = useAppDispatch();
 
     const openCloseCP = () => {
         dispatch(openCloseCreatePanel());
@@ -17,3 +17,5 @@ export default function Pluse() {
         </div>
     );
 };
+
+export default Pluse;

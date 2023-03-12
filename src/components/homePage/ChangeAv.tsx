@@ -1,18 +1,18 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { changeName } from '../../redux/slices/registredSlice';
 
-export default function ChangeAv({thema}) {
+const ChangeAv:React.FC<{thema: string}> = ({thema}) => {
     const [name, setName] = React.useState('');
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     React.useEffect(() => {
         setAnimation(true);
     }, []);
 
     const [animation, setAnimation] = React.useState(false);
-
+    
     const sendName = () => {
         dispatch(changeName(name));
         setName('');
@@ -33,3 +33,5 @@ export default function ChangeAv({thema}) {
         </div>
     );
 };
+
+export default ChangeAv;

@@ -1,12 +1,18 @@
 import React from 'react';
 import { checkMainInfo } from '../../functions/helper';
-import {useDispatch} from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { setCurrentDay } from '../../redux/slices/currentRoomSlice';
+import {DayDataTypes} from '../../types'
 
-export default function Day({idx, dayData}) {
+type DayProps = {
+  idx: number;
+  dayData: DayDataTypes;
+};
+
+const Day:React.FC<DayProps> = ({idx, dayData}) => {
   const [color, setColor] = React.useState('');
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     if (idx===0) {
@@ -36,3 +42,5 @@ export default function Day({idx, dayData}) {
     </div>
   );
 };
+
+export default Day;

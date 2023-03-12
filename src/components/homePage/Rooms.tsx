@@ -3,19 +3,19 @@ import Room from './Room';
 import loader from '../../imgs/loader.gif';
 import Find from './Find';
 import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { loadRooms } from '../../redux/slices/roomsSlice';
 import { webUrl } from '../../urls';
 
-export default function Rooms() {
-    const dispatch = useDispatch();
+const Rooms:React.FC = () => {
+    const dispatch = useAppDispatch();
 
-    const { roomsArr } = useSelector((state) => state.rooms);
+    const { roomsArr } = useAppSelector((state) => state.rooms);
 
     const [isLoading, setIsLoading] = React.useState(false);
 
     React.useEffect(() => {
-        const getRooms = async (url) => {
+        const getRooms = async (url: string) => {
             setIsLoading(true);
             const res = await axios.get(`${url}getRooms`);
             if (typeof res.data === 'string') {
@@ -52,3 +52,5 @@ export default function Rooms() {
         </div>
     );
 };
+
+export default Rooms;

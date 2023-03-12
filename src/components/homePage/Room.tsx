@@ -1,12 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { setCurrentName, setCurrentPass } from '../../redux/slices/currentRoomSlice';
 import { openClosePasPanel } from '../../redux/slices/settingsSlice';
 
-export default function Room({ roomName, bgIdx }) {
+const Room:React.FC<{roomName: string, bgIdx:number}> = ({ roomName, bgIdx }) => {
     const [color, setColor] = React.useState('');
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const pressRoom = () => {
         dispatch(openClosePasPanel());
@@ -38,3 +38,5 @@ export default function Room({ roomName, bgIdx }) {
         </div>
     );
 };
+
+export default Room;

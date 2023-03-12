@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import {useDispatch, useSelector} from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setRoomName, setPassword, addNewRoom } from '../../redux/slices/roomsSlice';
 import { webUrl } from '../../urls';
 
 
 
-export default function CreateRoom({thema}) {
-    const {roomName, password, roomsArr} = useSelector((state) => state.rooms)
+const CreateRoom:React.FC<{thema: string}> = ({thema}) => {
+    const {roomName, password, roomsArr} = useAppSelector((state) => state.rooms)
 
     const [animation, setAnimation] = React.useState(false)
     const [nameErr, setNameErr] = React.useState(false)
@@ -16,7 +16,7 @@ export default function CreateRoom({thema}) {
         setAnimation(true)
     }, [])
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     // function to create game
     const createRoom = async () => {
@@ -65,3 +65,5 @@ export default function CreateRoom({thema}) {
         </div>
     );
 };
+
+export default CreateRoom;

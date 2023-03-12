@@ -3,13 +3,13 @@ import axios from 'axios';
 import loader from '../../imgs/loader.gif';
 import eye from '../../imgs/eye.png'
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setCurrentPass, addCurrentRoom, setRoomEntered } from '../../redux/slices/currentRoomSlice';
 import { webUrl } from '../../urls';
 
 
-export default function PasswordPanel({ thema }) {
-    const { currentPassword, currentName } = useSelector((state) => state.currentRoom);
+const PasswordPanel:React.FC<{thema: string}> = ({ thema }) => {
+    const { currentPassword, currentName } = useAppSelector((state) => state.currentRoom);
 
     React.useEffect(() => {
         setAnimation(true);
@@ -22,9 +22,9 @@ export default function PasswordPanel({ thema }) {
     const [nameErr, setNameErr] = React.useState(false);
     const [isPassword, setIsPassword ] = React.useState(true);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const changePass = (e) => {
+    const changePass = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setCurrentPass(e.target.value));
     };
     
@@ -73,3 +73,5 @@ export default function PasswordPanel({ thema }) {
         </div>
     );
 };
+
+export default PasswordPanel;

@@ -1,14 +1,14 @@
 import React from 'react';
 import ButtonsDayPannel from './ButtonsDayPannel';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setMessage } from '../../redux/slices/currentRoomSlice';
 
 
 
-export default function DayPannel({ thema }) {
-  const {currendDay, message} = useSelector((state) => state.currentRoom);
+const DayPannel:React.FC<{thema: string}> = ({ thema }) =>  {
+  const {currendDay, message} = useAppSelector((state) => state.currentRoom);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div className={`dayPanel ${thema === 'white' ? 'bg-gray-300' : 'bg-gray-400'}`}>
@@ -31,3 +31,5 @@ export default function DayPannel({ thema }) {
     </div>
   );
 };
+
+export default DayPannel;
