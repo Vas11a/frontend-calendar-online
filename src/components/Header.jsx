@@ -3,6 +3,8 @@ import avatar from '../imgs/avatar1.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { openCloseChangeAvPanel } from '../redux/slices/settingsSlice';
 
+
+
 export default function Header({ chatName }) {
   const {name} = useSelector((state) => state.registred);
   const dispatch = useDispatch();

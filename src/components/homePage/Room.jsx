@@ -33,7 +33,7 @@ export default function Room({ roomName, bgIdx }) {
     }, []);
 
     return (
-        <div className={`room p-2 mb-1 w-full ${color} rounded-md cursor-pointer`} onClick={pressRoom}>
+        <div className={`room p-2 mb-1 w-full ${color} rounded-md cursor-pointer h-10`} onClick={pressRoom}>
             <span className='font-bold'>{roomName}</span>
         </div>
     );

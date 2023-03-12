@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.password-fieled::-ms-reveal,
+.password-fieled::-ms-clear{
+    display: none;
+}
 
 /* HOME PAGE */
 

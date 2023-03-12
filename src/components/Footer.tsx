@@ -1,7 +1,6 @@
-import React from 'react';
 import github from '../imgs/github.png';
 
-export default function Footer() {
+const Footer:React.FC = () =>  {
   return (
     <footer className='footerHome'>
         <a href='https://github.com/Vas11a' target='_blank' className="githubImg">
@@ -10,3 +9,5 @@ export default function Footer() {
     </footer>
   );
 };
+
+export default Footer;

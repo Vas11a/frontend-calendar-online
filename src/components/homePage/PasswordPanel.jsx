@@ -61,7 +61,7 @@ export default function PasswordPanel({ thema }) {
                 type={isPassword ? 'password' : 'text'} 
                 onChange={changePass} 
                 placeholder='password' 
-                className={`focus:outline-0 font-bold pr-10 rounded-md p-1 text-lg w-full  ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}
+                className={`password-fieled focus:outline-0 font-bold pr-10 rounded-md p-1 text-lg w-full  ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}
             />
             <img src={eye} alt="see" onClick={() => setIsPassword(!isPassword)} className=' w-6 h-6 m-1 right-1 absolute cursor-pointer' />
             </div>

@@ -29,8 +29,6 @@ export default function CalendarPage() {
           <DayPannel thema={thema}/>
           <OtherSettingsPanel thema={thema} />
         </div>
-
-
       </main>
       <Footer />
     </div>
