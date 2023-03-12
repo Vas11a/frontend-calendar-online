@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
+
 const initialState = {
   thema: localStorage.getItem('CalendarThema') || 'white',
   isOpenPasPanel: false,
@@ -7,6 +9,8 @@ const initialState = {
   isOpenChangeAvPanel: false,
   isOpenRemovepannel: false,
 };
+
+
 
 export const settingsSlice = createSlice({
   name: 'settings',

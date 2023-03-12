@@ -12,7 +12,7 @@ export default function DayPannel({ thema }) {
 
   return (
     <div className={`dayPanel ${thema === 'white' ? 'bg-gray-300' : 'bg-gray-400'}`}>
-      {JSON.stringify(currendDay) !== '{}' ? <> <div className=' font-bold text-center pt-1 text-2xl'>{currendDay.data}</div>
+      {currendDay !== null ? <> <div className=' font-bold text-center pt-1 text-2xl'>{currendDay.data}</div>
       <div className=' font-bold text-xl py-2'>Main Info:
         <span className=' font-normal break-words'> {currendDay.messages.main !== undefined ? currendDay.messages.main : 'No main events'}</span>
       </div>

@@ -10,3 +10,24 @@ export type DayArrTypes = {
         };
     }>;
 }
+
+
+type DayMessageTypes = {
+    name:string;
+    message:string;
+}
+
+export type DayDataTypes = {
+    data: string,
+    messages: {
+        main?: string,
+        otherMess? : DayMessageTypes[]
+    }
+}
+
+export type CurrentRoomTypes = {
+    _id: string;
+    name: string;
+    password: string;
+    days: DayDataTypes[];
+}

@@ -1,13 +1,16 @@
 import React from 'react';
 import avatar from '../imgs/avatar1.jpg';
-import { useDispatch, useSelector } from 'react-redux';
 import { openCloseChangeAvPanel } from '../redux/slices/settingsSlice';
+import { useAppSelector, useAppDispatch } from '../redux/hooks';
+
+type PropsType = {
+  chatName: string;
+};
 
 
-
-export default function Header({ chatName }) {
-  const {name} = useSelector((state) => state.registred);
-  const dispatch = useDispatch();
+const Header:React.FC<PropsType> = ({ chatName }) =>  {
+  const { name } = useAppSelector((state) => state.registred);
+  const dispatch = useAppDispatch();
   return (
     <header className='headerHome'>
       <div className="chatName">
@@ -24,3 +27,5 @@ export default function Header({ chatName }) {
     </header>
   );
 };
+
+export default Header;

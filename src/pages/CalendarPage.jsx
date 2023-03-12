@@ -22,9 +22,9 @@ export default function CalendarPage() {
 
   return (
     <div className={`wrapper duration-500 ${thema !== 'white' && 'bg-gray-600'}`}>
-      <Header chatName={currentRoom.name} />
+      <Header chatName={currentRoom !== null && currentRoom.name} />
       <main>
-        <DaysList days={currentRoom.days}/>
+        <DaysList days={currentRoom !== null && currentRoom.days}/>
         <div className="controolPanel ">
           <DayPannel thema={thema}/>
           <OtherSettingsPanel thema={thema} />
