@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from '../imgs/avatar1.jpg';
+import avatar from '../imgs/avatar3.png';
 import { openCloseChangeAvPanel } from '../redux/slices/settingsSlice';
 import { useAppSelector, useAppDispatch } from '../redux/hooks';
 

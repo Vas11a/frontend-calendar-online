@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import eye from '../../imgs/eye.png';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setRoomName, setPassword, addNewRoom } from '../../redux/slices/roomsSlice';
 import { webUrl } from '../../urls';
@@ -7,14 +8,15 @@ import { webUrl } from '../../urls';
 
 
 const CreateRoom:React.FC<{thema: string}> = ({thema}) => {
-    const {roomName, password, roomsArr} = useAppSelector((state) => state.rooms)
+    const {roomName, password, roomsArr} = useAppSelector((state) => state.rooms);
 
-    const [animation, setAnimation] = React.useState(false)
-    const [nameErr, setNameErr] = React.useState(false)
+    const [animation, setAnimation] = React.useState(false);
+    const [nameErr, setNameErr] = React.useState(false);
+    const [isPassword, setIsPassword ] = React.useState(true);
 
     React.useEffect(() => {
-        setAnimation(true)
-    }, [])
+        setAnimation(true);
+    }, []);
 
     const dispatch = useAppDispatch();
 
@@ -51,13 +53,16 @@ const CreateRoom:React.FC<{thema: string}> = ({thema}) => {
                 onChange={(e) => dispatch(setRoomName(e.target.value))}
                 className={`focus:outline-0 font-bold rounded-md p-1 text-lg w-full  ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`} 
             />
+            <div className='flex items-center relative w-full'>
             <input 
-                type="text" 
                 placeholder='enter password' 
                 value={password}
+                type={isPassword ? 'password' : 'text'} 
                 onChange = {(e) => dispatch(setPassword(e.target.value))}
-                className={`focus:outline-0 font-bold rounded-md p-1 text-lg w-full  ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}  
+                className={`focus:outline-0 pr-10 font-bold rounded-md p-1 text-lg w-full  ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}  
             />
+            <img src={eye} alt="see" onClick={() => setIsPassword(!isPassword)} className=' w-6 h-6 m-1 right-1 absolute cursor-pointer' />
+            </div>
             <button
                 onClick={createRoom} 
                 className='border-2 border-gray-500 py-1 px-2 font-medium rounded-xl'>
