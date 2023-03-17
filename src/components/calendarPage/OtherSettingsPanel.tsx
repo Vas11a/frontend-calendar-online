@@ -16,7 +16,7 @@ const OtherSettingsPanel:React.FC<{thema: string}> = ({thema}) => {
                 }
                 
             </div>
-            <div className="otherSettings sm:border-t-2 sm:border-black">
+            <div className="otherSettings sm:border-t-2 sm:border-black ">
                 <Thema />
                 <OtSettButtons/>
             </div>

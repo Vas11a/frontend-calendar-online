@@ -30,7 +30,7 @@ const Rooms:React.FC = () => {
     return (
         <div className="rooms ">
             <div className=" font-bold text-xl">Rooms</div>
-            <div className="pannelRoom p-1 overflow-y-scroll">
+            <div className="pannelRoom scrollbar-rooms p-1 overflow-auto">
                 <Find load={setIsLoading}/>
                 {
                     isLoading && <img src={loader} alt="loading" className=' w-14 h-14 m-auto mt-5 mb-2' />

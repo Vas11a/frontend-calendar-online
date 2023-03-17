@@ -27,7 +27,7 @@ const DayPannel:React.FC<{thema: string}> = ({ thema }) =>  {
       
 
       <textarea value={message} onChange={(e) => dispatch(setMessage(e.target.value))} placeholder='enter note' className={` w-full h-24 resize-none mt-2 rounded-xl p-2 focus:outline-0 ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}></textarea>
-      <ButtonsDayPannel data={currendDay.data} message={message} /> </> : <> <div className=' text-3xl text-center pt-9 font-bold text-gray-600'>Choose Day</div></>}
+      <ButtonsDayPannel data={currendDay.data} message={message} /> </> : <> <div className=' text-3xl text-center py-9 font-bold text-gray-600'>Choose Day</div></>}
     </div>
   );
 };

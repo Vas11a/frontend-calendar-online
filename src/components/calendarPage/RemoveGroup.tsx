@@ -30,6 +30,7 @@ const RemoveGroup: React.FC<{ thema: string }> = ({ thema }) => {
         const res = await axios.post(`${webUrl}removeGroup`, { currentName, removePass });
         if (res.data === 'error') {
             setError(true);
+            setRemovePass('');
             return;
         };
         dispatch(clearRoomSlice());
@@ -45,7 +46,7 @@ const RemoveGroup: React.FC<{ thema: string }> = ({ thema }) => {
             <div className='flex items-center relative w-full'>
                 <input
                     type={isPassword ? 'password' : 'text'} 
-                    placeholder={error ? 'Error' : 'Password'}
+                    placeholder={error ? 'Error pass' : 'Password'}
                     value={removePass} onChange={(e) => setRemovePass(e.target.value)}
                     className={`focus:outline-0 font-bold rounded-md p-1 text-lg w-full ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}
                 />
