@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/frontend-calendar-online/static/css/main.271de37c.css",
-    "main.js": "/frontend-calendar-online/static/js/main.32294d93.js",
+    "main.css": "/frontend-calendar-online/static/css/main.c49e3a90.css",
+    "main.js": "/frontend-calendar-online/static/js/main.59181e4a.js",
     "static/media/loader.gif": "/frontend-calendar-online/static/media/loader.803f24369a085e35482e.gif",
     "static/media/avatar3.png": "/frontend-calendar-online/static/media/avatar3.9c356812e04863159887.png",
     "static/media/eye.png": "/frontend-calendar-online/static/media/eye.4b3ea4b6fb7a79db75cc.png",
     "index.html": "/frontend-calendar-online/index.html",
-    "main.271de37c.css.map": "/frontend-calendar-online/static/css/main.271de37c.css.map",
-    "main.32294d93.js.map": "/frontend-calendar-online/static/js/main.32294d93.js.map"
+    "main.c49e3a90.css.map": "/frontend-calendar-online/static/css/main.c49e3a90.css.map",
+    "main.59181e4a.js.map": "/frontend-calendar-online/static/js/main.59181e4a.js.map"
   },
   "entrypoints": [
-    "static/css/main.271de37c.css",
-    "static/js/main.32294d93.js"
+    "static/css/main.c49e3a90.css",
+    "static/js/main.59181e4a.js"
   ]
 }
