@@ -50,6 +50,14 @@ export const currentRoomSlice = createSlice({
     setMessage(state, action:PayloadAction<string>) {
       state.message = action.payload;
     },
+    removeMessage(state, action:PayloadAction<number>) {
+      state.currendDay?.messages.otherMess?.splice(action.payload, 1);
+      state.currentRoom?.days.forEach(elem => {
+        if (elem.data === state.currendDay?.data) {
+          elem.messages.otherMess?.splice(action.payload, 1);
+        };
+      });
+    },
     addMainMessage(state, action:PayloadAction<string[]>) {
       
       if (state.currendDay !== null && state.currentRoom !== null) {
@@ -104,7 +112,8 @@ export const { setCurrentPass,
   setMessage,
   addMainMessage,
   addMessage,
-  clearRoomSlice }
+  clearRoomSlice,
+  removeMessage }
   = currentRoomSlice.actions;
 
 export default currentRoomSlice.reducer;

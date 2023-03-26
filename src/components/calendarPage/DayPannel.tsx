@@ -1,5 +1,6 @@
 import React from 'react';
 import ButtonsDayPannel from './ButtonsDayPannel';
+import Message from './Message';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setMessage } from '../../redux/slices/currentRoomSlice';
 
@@ -19,9 +20,7 @@ const DayPannel:React.FC<{thema: string}> = ({ thema }) =>  {
 
       {
         currendDay.messages.otherMess !== undefined && currendDay.messages.otherMess.map((elem, idx) => 
-        <div key = {elem.name +idx} className=' font-bold text-lg'>{elem.name}:
-          <span className=' font-normal'> {elem.message}</span>
-        </div>
+          <Message data={currendDay.data} key = {elem.name +idx} elMess={elem.message} idx={idx} elName = {elem.name}/>
         ) 
       }
       
