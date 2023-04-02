@@ -8,6 +8,7 @@ const initialState = {
   isOpenCreatePanel: false,
   isOpenChangeAvPanel: false,
   isOpenRemovepannel: false,
+  isOpenAboutPannel: false
 };
 
 
@@ -29,25 +30,36 @@ export const settingsSlice = createSlice({
       state.isOpenPasPanel = true;
       state.isOpenCreatePanel = false;
       state.isOpenChangeAvPanel = false;
+      state.isOpenAboutPannel = false;
     },
     openCloseCreatePanel(state) {
       state.isOpenCreatePanel = true;
       state.isOpenPasPanel = false;
       state.isOpenChangeAvPanel = false;
+      state.isOpenAboutPannel = false;
     },
     openCloseChangeAvPanel(state) {
       state.isOpenChangeAvPanel = true;
+      state.isOpenPasPanel = false;
+      state.isOpenCreatePanel = false;
+      state.isOpenAboutPannel = false;
+    },
+    openCloseAboutPannel(state) {
+      state.isOpenAboutPannel = true;
+      state.isOpenChangeAvPanel = false;
       state.isOpenPasPanel = false;
       state.isOpenCreatePanel = false;
     },
     openRemovePannel(state) {
       state.isOpenRemovepannel = !state.isOpenRemovepannel;
     },
+
     clearSettingSlice(state) {
       state.isOpenPasPanel = false;
       state.isOpenCreatePanel = false;
       state.isOpenChangeAvPanel =  false;
       state.isOpenRemovepannel = false;
+      state.isOpenAboutPannel = false;
     }
   },
 });
@@ -58,7 +70,8 @@ export const { changeThema,
    openCloseCreatePanel,
    openCloseChangeAvPanel,
    openRemovePannel,
-   clearSettingSlice
+   clearSettingSlice,
+   openCloseAboutPannel
 } = settingsSlice.actions;
 
 export default settingsSlice.reducer;

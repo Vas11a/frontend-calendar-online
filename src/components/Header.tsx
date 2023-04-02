@@ -1,6 +1,6 @@
 import React from 'react';
 import avatar from '../imgs/avatar3.png';
-import { openCloseChangeAvPanel } from '../redux/slices/settingsSlice';
+import { openCloseAboutPannel } from '../redux/slices/settingsSlice';
 import { useAppSelector, useAppDispatch } from '../redux/hooks';
 
 type PropsType = {
@@ -17,7 +17,7 @@ const Header:React.FC<PropsType> = ({ chatName }) =>  {
         {chatName}
       </div>
       <div className="account">
-        <div className="name cursor-pointer" onClick={() => dispatch(openCloseChangeAvPanel())}>
+        <div className="name cursor-pointer" onClick={() => dispatch(openCloseAboutPannel())}>
           {name}
         </div>
         <div className="avatarImg ">
