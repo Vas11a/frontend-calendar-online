@@ -19,7 +19,7 @@ const Settings:React.FC<{thema: string}> = ({thema}) => {
                 Settings
             </div>
             <div className="pannelRoom flex flex-col justify-between p-1 overflow-hidden ">
-                <div className="">
+                <div className=" h-full scrollbar-rooms overflow-auto ">
                     {
                         isOpenCreatePanel && <CreateRoom thema={thema}/>
                     }
