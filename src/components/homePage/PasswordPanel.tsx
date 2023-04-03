@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import loader from '../../imgs/loader.gif';
-import eye from '../../imgs/eye.png'
+import Loader from '../Loader';
+import eye from '../../imgs/eye.png';
+import Error from '../Error';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setCurrentPass, addCurrentRoom, setRoomEntered } from '../../redux/slices/currentRoomSlice';
@@ -54,7 +55,7 @@ const PasswordPanel:React.FC<{thema: string}> = ({ thema }) => {
     return (
         <div className={`account flex flex-col justify-center text-center  py-2 rounded-md px-2 duration-500 ${thema !== 'white' ? 'bg-gray-400' : 'bg-gray-300'} -mt-80 ${animation && ' translate-y-80'}`}>
             <div className=' font-bold text-xl'>{currentName}</div>
-            {nameErr && <div className=' font-bold -my-2 text-red-600 text-sm'>wrong password</div>}
+            {nameErr && <Error text='wrong password' padding='-my-2' width='text-md'/>}
             <div className=' flex items-center relative'>
             <input 
                 value={currentPassword} 
@@ -67,7 +68,7 @@ const PasswordPanel:React.FC<{thema: string}> = ({ thema }) => {
             </div>
             <button onClick={goToRoom} className='border-2 border-gray-500 py-1 px-2 font-medium rounded-xl'>Enter</button>
             {
-                isLoading && <img src={loader}  alt="loading"  className=' w-11 h-11 m-auto'/>
+                isLoading && <Loader margin='' width='w-11'/>
             }
             
         </div>

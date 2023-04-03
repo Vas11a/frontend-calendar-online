@@ -1,5 +1,5 @@
 import React from 'react';
-import loader from '../../imgs/loader.gif';
+import Loader from '../Loader';
 import axios from 'axios';
 import { changeName } from '../../redux/slices/registredSlice';
 import { webUrl } from '../../urls';
@@ -38,10 +38,10 @@ const PasswordPanel:React.FC<{thema: string}> = ({ thema }) => {
 
     
     return (
-        <div className={`account flex flex-col justify-center text-center  py-2 rounded-md px-2 duration-500 ${thema !== 'white' ? 'bg-gray-400' : 'bg-gray-300'} -mt-80 ${animation && ' translate-y-80'}`}>
+        <div className={`about ${thema !== 'white' ? 'bg-gray-400' : 'bg-gray-300'} -mt-80 ${animation && ' translate-y-80'}`}>
             <h1 className='text-2xl font-bold'>{name}</h1>
             {
-                isLoading && <img src={loader} alt="loading..." className=' m-auto w-10 h-auto my-1' />
+                isLoading && <Loader width='w-10' margin='my-1'/>
             }
             
             {

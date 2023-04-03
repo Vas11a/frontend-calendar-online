@@ -1,6 +1,6 @@
 import React from 'react';
 import Room from './Room';
-import loader from '../../imgs/loader.gif';
+import Loader from '../Loader';
 import Find from './Find';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -33,7 +33,7 @@ const Rooms:React.FC = () => {
             <div className="pannelRoom scrollbar-rooms p-1 overflow-auto">
                 <Find load={setIsLoading}/>
                 {
-                    isLoading && <img src={loader} alt="loading" className=' w-14 h-14 m-auto mt-5 mb-2' />
+                    isLoading && <Loader width='w-14' margin='mt-5 mb-2'/>
                 }
                 {
                     roomsArr.length === 0 && <div className=' text-center text-2xl font-bold text-gray-500'>No rooms</div>

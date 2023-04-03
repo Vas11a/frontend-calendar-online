@@ -41,14 +41,14 @@ const RemoveGroup: React.FC<{ thema: string }> = ({ thema }) => {
     };
 
     return (
-        <div className={`account flex flex-col justify-center text-center bg-gray-300 py-2 rounded-md px-2 duration-1000 ${thema === 'white' ? 'bg-gray-300' : 'bg-gray-400'} -mt-80 ${animation && ' translate-y-80'}`}>
+        <div className={`removeBlock ${thema === 'white' ? 'bg-gray-300' : 'bg-gray-400'} -mt-80 ${animation && ' translate-y-80'}`}>
             <div className=' font-bold text-xl'>Remove</div>
             <div className='flex items-center relative w-full'>
                 <input
                     type={isPassword ? 'password' : 'text'} 
                     placeholder={error ? 'Error pass' : 'Password'}
                     value={removePass} onChange={(e) => setRemovePass(e.target.value)}
-                    className={`focus:outline-0 font-bold rounded-md p-1 text-lg w-full ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}
+                    className={`focus:outline-0 password-fieled font-bold rounded-md p-1 text-lg w-full ${thema !== 'white' ? 'bg-gray-500' : 'bg-white'}`}
                 />
                 <img src={eye} alt="see" onClick={() => setIsPassword(!isPassword)} className=' w-6 h-6 m-1 right-1 absolute cursor-pointer' />
             </div>

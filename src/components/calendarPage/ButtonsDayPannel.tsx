@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import loader from '../../imgs/loader.gif';
+import Loader from '../Loader';
+import Error from '../Error';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { addMainMessage, addMessage } from '../../redux/slices/currentRoomSlice';
 import { setMessage } from '../../redux/slices/currentRoomSlice';
@@ -9,7 +10,7 @@ import {webUrl} from '../../urls';
 type PropsType = {
     data: string;
     message: string;
-}
+};
 
 const ButtonsDayPannel:React.FC<PropsType> = ({data, message}) => {
     const {currentName} = useAppSelector((state) => state.currentRoom);
@@ -49,11 +50,11 @@ const ButtonsDayPannel:React.FC<PropsType> = ({data, message}) => {
     };
     return (
         <>
-        {isError && <div className=' font-bold px-2 text-lg text-center text-red-600'>Error</div>}
-        {isLoading &&  <img src={loader} alt="loading" className=' w-14 h-14 m-auto my-2' />}
+        {isError && <Error width='text-lg' padding='px-2' text='Error'/> }
+        {isLoading &&  <Loader margin='my-2' width='w-11'/>}
         <div className="buttonsDayPannel pt-4 flex justify-between">
-            <button onClick={sendAsMessage} className=' px-2 py-1 duration-500 bg-gray-400 hover:bg-white border border-black text-lg rounded-md'>Send</button>
-            <button onClick={sendAsMain}className='px-2 py-1 border duration-500 bg-gray-400 hover:bg-white border-black text-lg rounded-md'>Send as main</button>
+            <button onClick={sendAsMessage} className='sendMessageButtons '>Send</button>
+            <button onClick={sendAsMain}className='sendMessageButtons '>Send as main</button>
         </div>
         </>
     );

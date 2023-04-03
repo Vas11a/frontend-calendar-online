@@ -1,7 +1,6 @@
 import React from 'react';
 import remove from '../../imgs/delete-332.png';
 import axios from 'axios';
-import loader from '../../imgs/loader.gif'
 import { webUrl } from '../../urls';
 import { removeMessage } from '../../redux/slices/currentRoomSlice';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
@@ -22,7 +21,7 @@ const Message: React.FC<MessageProps> = ({ elName, elMess, idx, data }) => {
         try {
             const res = await axios.post(`${webUrl}removeMess`, {idx, currentName, data});
             if (res.data === 'error') {
-                return
+                return;
             };
             dispatch(removeMessage(idx));
         } catch (error) {
