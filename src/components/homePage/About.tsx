@@ -1,6 +1,7 @@
 import React from 'react';
 import Loader from '../Loader';
 import axios from 'axios';
+import FavoriteList from './favoriteGroups/FavoriteList';
 import { changeName } from '../../redux/slices/registredSlice';
 import { webUrl } from '../../urls';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -43,7 +44,7 @@ const PasswordPanel:React.FC<{thema: string}> = ({ thema }) => {
             {
                 isLoading && <Loader width='w-10' margin='my-1'/>
             }
-            
+            <FavoriteList/>
             {
                 name !== 'Guest' && <button onClick={removeUser} className=' text-red-600 py-1 px-2 border-black border-2 font-bold rounded-2xl text-sm'>Remove Acc</button>
             }

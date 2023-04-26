@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { changeName, changePass } from '../../redux/slices/registredSlice';
+import { changeName, changePass, setFavoriteRooms } from '../../redux/slices/registredSlice';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { webUrl } from '../../urls';
 
@@ -29,6 +29,7 @@ const Register:React.FC<RegisterProps> = ({name, error, loading, clearName, erro
           }
           error(false);
           loading(false);
+          dispatch(setFavoriteRooms([]))
           dispatch(changeName(name));
           clearName('');
           dispatch(changePass(''));

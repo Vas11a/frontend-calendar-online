@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { webUrl } from '../../urls';
-import { changeName, changePass } from '../../redux/slices/registredSlice';
+import { changeName, changePass, setFavoriteRooms } from '../../redux/slices/registredSlice';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 
 type LoginProps = {
@@ -28,8 +28,12 @@ const Login:React.FC<LoginProps> = ({name, error, loading, clearName, errorOt}) 
           dispatch(changePass(''));
           return;
         }
+        if (typeof res.data !== 'string') {
+          dispatch(setFavoriteRooms(res.data));
+        } else {
+          dispatch(setFavoriteRooms([]));
+        }
         error(false);
-        console.log('ggg')
         loading(false);
         dispatch(changeName(name));
         clearName('');

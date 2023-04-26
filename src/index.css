@@ -78,6 +78,10 @@
     @apply sm:pt-20 pt-10 flex justify-center
 }
 
+.f-group{
+    @apply cursor-pointer bg-red-500 bg-gradient-to-r from-red-500 to-lime-400 px-3 py-1 rounded-xl text-lg font-bold w-full
+}
+
 /* main page */
 
 .daysList{
